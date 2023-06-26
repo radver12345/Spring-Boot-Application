@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<head>
+  <title>Student Results</title>
+</head>
+<body>
+<h1>Student Results</h1>
+<br>
+<h2>Student Information</h2>
+<p>Student ID: <span th:text="${results.student.id}"></span></p>
+<p>Student Name: <span th:text="${results.student.student_Name}"></span></p>
+<p>School Name: <span th:text="${results.student.school_name}"></span></p>
+<p>School Address: <span th:text="${results.student.school_address}"></span></p>
+<p>Attendance: <span th:text="${results.student.attendence}"></span></p>
+<br>
+<br>
+<h2>Subject Marks</h2>
+<table>
+  <tr>
+    <th>Subject Code</th>
+    <th>Subject Name</th>
+    <th>Maximum Marks</th>
+    <th>Obtained Marks</th>
+    <th>Subject Grade</th>
+  </tr>
+  <tr th:each="marks : ${results.marks}">
+    <td th:text="${marks.subjectCode}"></td>
+    <td th:text="${marks.subjectName}"></td>
+    <td th:text="${marks.maxMarks}"></td>
+    <td th:text="${marks.obtainedMarks}"></td>
+    <td th:text="${marks.subGrade}"></td>
+  </tr>
+</table>
+<p>Grand Total: <span th:text="${results.grandtotal}"></span></p>
+<p>Percentage: <span th:text="${results.percentage}"></span></p>
+<p>Overall Grade: <span th:text="${results.grade}"></span></p>
+</body>
+</html>
